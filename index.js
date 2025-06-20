@@ -24,9 +24,14 @@ function displayWeather(response) {
   let description = response.data.condition.description;
   let humidity = response.data.temperature.humidity;
   let wind = Math.round(response.data.wind.speed);
+  let tempIcon= response.data.condition.icon_url;
 
   document.querySelector("#current-city").innerHTML = cityName;
   document.querySelector(".current-temperature-value").innerHTML = temperature;
+  document
+    .querySelector(".current-temperature-icon")
+    .setAttribute("src", tempIcon);
+
   document.querySelector("#weather").innerHTML = description;
   document.querySelector(
     "#humidity"
